@@ -4,12 +4,16 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2508.01832-b31b1b.svg)](https://arxiv.org/pdf/2508.01832)
 [![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-MLPMemory-yellow)](https://huggingface.co/collections/Rubin-Wei/mlpmemory-68f4e617aa42a93510861760)
-
+[![ICLR](https://img.shields.io/badge/ICLR%202026-MLPMemory-blue)]()
 
 </div>
 
 <p align="center" style="font-size: larger;">
   <a href="https://arxiv.org/pdf/2508.01832">MLP Memory: A Retriever-Pretrained Memory for Large Language Models</a>
+</p>
+
+<p align="center">
+  <em><strong>ICLR 2026</strong></em>
 </p>
 
 <p align="center">
@@ -303,10 +307,10 @@ For questions and discussions, feel free to email: **weirubinn@gmail.com**
 If you find MLP Memory helpful in your research, please consider citing:
 
 ```bibtex
-@inproceedings{Wei2025MLPMA,
+@article{wei2025mlp,
   title={MLP Memory: A Retriever-Pretrained Memory for Large Language Models},
-  author={Rubin Wei and Jiaqi Cao and Jiarui Wang and Jushi Kai and Qipeng Guo and Bowen Zhou and Zhouhan Lin},
-  year={2025},
-  url={https://api.semanticscholar.org/CorpusID:281658735}
+  author={Wei, Rubin and Cao, Jiaqi and Wang, Jiarui and Kai, Jushi and Guo, Qipeng and Zhou, Bowen and Lin, Zhouhan},
+  journal={arXiv preprint arXiv:2508.01832},
+  year={2025}
 }
 ```
