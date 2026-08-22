@@ -1,0 +1,28 @@
+task: triviaqa
+evaluator: downstream/eval_webqa_triviaqa.py
+
+dataset:
+  path: downstream/data/triviaqa/test.jsonl
+  split: test
+
+prompt:
+  shots: 0
+  template: "Answer the questions:\\n\\nQuestion: {question}? The answer is:"
+
+generation:
+  strategy: greedy
+  max_new_tokens: 100
+  stop_strings:
+    - "\\n"
+    - "."
+    - ","
+  batch_size: 4
+  dtype: bfloat16
+
+metric:
+  name: normalized_token_substring_match
+  definition: 1 if any reference answer occurs as a contiguous token sequence in the prediction, otherwise 0
+  normalization:
+    - Unicode NFD normalization
+    - uncased tokenization
+  aggregate: mean over all test samples

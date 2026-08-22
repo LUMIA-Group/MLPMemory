@@ -1,0 +1,35 @@
+task: nq
+evaluator: downstream/eval_qa.py
+
+dataset:
+  name: nq_open
+  split: validation
+  preprocessing:
+    - deduplicate answers
+    - discard samples containing the invalid answer ")"
+
+prompt:
+  shots: 0
+  question_normalization:
+    - append "?" when missing
+    - lowercase the first character
+  template: |-
+    Answer these questions:
+    Question: {question}
+    Answer:
+
+generation:
+  strategy: greedy
+  max_input_tokens: 4096
+  max_new_tokens: 15
+  batch_size: 1
+  dtype: float16
+
+metrics:
+  normalization:
+    - lowercase
+    - remove punctuation
+    - remove articles "a", "an", and "the"
+    - normalize whitespace
+  exact_match: normalized prediction equals any normalized reference answer
+  token_f1: maximum token-level F1 over all normalized reference answers

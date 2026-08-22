@@ -1,0 +1,33 @@
+task: hotpotqa
+evaluator: downstream/eval_qa.py
+
+dataset:
+  name: hotpot_qa
+  config: distractor
+  split: validation
+
+prompt:
+  shots: 0
+  question_normalization:
+    - append "?" when missing
+    - lowercase the first character
+  template: |-
+    Answer these questions:
+    Question: {question}
+    Answer:
+
+generation:
+  strategy: greedy
+  max_input_tokens: 4096
+  max_new_tokens: 15
+  batch_size: 1
+  dtype: float16
+
+metrics:
+  normalization:
+    - lowercase
+    - remove punctuation
+    - remove articles "a", "an", and "the"
+    - normalize whitespace
+  exact_match: normalized prediction equals the normalized reference answer
+  token_f1: token-level F1 against the normalized reference answer
